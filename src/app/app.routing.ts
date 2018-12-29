@@ -8,12 +8,13 @@ import { StudentComponent } from './components/student/student.component';
 
 const appRoutes: Routes = [
 	{path: '', component: LoginComponent},
+	{path: 'login', component: LoginComponent},
 	{path: 'home', component: HomeComponent},
 	{path: 'teacher', component: TeacherComponent},
 	{path: 'student', component: StudentComponent},
-	{path: '**', component: LoginComponent},
+	{path: '**', component: LoginComponent}
 
 ];
 
-export const appRoutingProviders: any[]=[];
+export const appRoutingProviders: any[] = [];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
