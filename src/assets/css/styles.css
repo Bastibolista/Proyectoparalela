@@ -1,0 +1,57 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	font-size: 20px;
+	background: url("../img/pattern.png");
+	background-attachment: fixed;
+}
+
+.clearfix{
+	float: none;
+	clear: both;
+}
+
+/*Barra de navegacion*/
+
+header{
+	display: block;
+	width: 100%;
+	height: 90px;
+	background: #2736ada3;
+	position: fixed;
+	text-transform: uppercase;
+	
+}
+
+header ul{
+	display: block;
+	width: 100%;
+	height:inherit;
+	margin: 0px auto;
+}
+
+header ul li{
+	display: inline-block;
+	margin: 0px auto;
+	text-align: center;
+	line-height: 90px;
+}
+header a{
+	display: block;
+	padding-right: 20px;
+	padding-left: 20px;
+	height: inherit;
+	text-decoration: none;
+	color: white;
+	transition: all 300ms; 
+}
+header a:hover{
+	background: rgba(0,0,0,0.8);
+}
+
+header #nombre a:hover{
+	background:transparent;
+}
