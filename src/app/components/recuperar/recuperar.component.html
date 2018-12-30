@@ -84,7 +84,7 @@ span.psw {
 </style>
 <div style="box-shadow: 0px 0px 40px black;background: rgba(255,255,255,0.7);margin: auto;">
 <body id="fondologin" >
-
+<h1>Recuperar clave</h1>
   <form action="/action_page.php" style="background-color: #fffefe;">
   <div class="imgcontainer">
     <img src="assets/imagenes/Utemlogo.png" alt="Avatar" class="avatar" >
@@ -94,19 +94,11 @@ span.psw {
     <label for="uname"><b>Rut</b></label>
     <input type="text" placeholder="Rut" name="uname" required>
 
-    <label for="psw"><b>Contraseña</b></label>
-    <input type="password" placeholder="Contraseña" name="psw" required>
-
-    <button type="submit">Entrar</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Recuerdame
-    </label>
+    <button type="submit">Recuperar</button>
   </div>
 
   <div class="container" style="background-color:#fffefe;">
     <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw"><a [routerLink]="['/recuperar']">¿Olvido su contraseña?</a></span>
-   
   </div>
 </form>
 
