@@ -1,7 +1,31 @@
 
 
 <html>
-<head><title>Historico estudiantes</title></head>
+
+<style type="text/css">
+  h1{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
+
+</style>
+<header>
+  <ul>
+    <li id="nombre"><a href="['/home']">Nombre</a></li>
+  <li><a [routerLink]="['']">Login</a></li>
+  <li><a [routerLink]="['/home']">Home</a></li>
+  <li><a [routerLink]="['/teacher']">Teacher</a></li>
+  <li><a [routerLink]="['/student']">Student</a></li>
+  <li><a [routerLink]="['/comparacion']">Comparacion</a></li>
+
+</ul>
+
+</header>
+
+<div style="padding-top: 150px;">
+  <head><title>Historico estudiantes</title></head>
 <body>
 
 <h1>Listado de cursos</h1>
@@ -33,4 +57,5 @@
 </table>
 
 </body>
+</div>
 </html>

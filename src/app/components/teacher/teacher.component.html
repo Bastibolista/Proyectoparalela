@@ -1,4 +1,26 @@
-<h1>Comparacion</h1>
+<style type="text/css">
+  h1{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
+
+</style>
+<header>
+  <ul>
+    <li id="nombre"><a href="['/home']">Nombre</a></li>
+  <li><a [routerLink]="['']">Login</a></li>
+  <li><a [routerLink]="['/home']">Home</a></li>
+  <li><a [routerLink]="['/teacher']">Teacher</a></li>
+  <li><a [routerLink]="['/student']">Student</a></li>
+  <li><a [routerLink]="['/comparacion']">Comparacion</a></li>
+
+</ul>
+
+</header>
+<div style="padding-top:  150px;">
+  <h1>Comparacion</h1>
 <hr>
 <p>Año de ingreso 2013</p>
 <div class="row">
@@ -16,7 +38,7 @@
     </div>
   </div>
   <div class="col-md-6" style="margin-bottom: 10px">
-    <table class="table table-responsive table-condensed">
+    <table class="table table-responsive table-condensed" style="text-align: center;">
       <tr>
         <th *ngFor="let label of lineChartLabels">{{label}}</th>
       </tr>
@@ -30,4 +52,6 @@
 <p>Ranking :100</p>
 <p>Promedio: 4.5</p>
 <p>Desviacion Estandar :1.5</p>
+</div>
+
 
