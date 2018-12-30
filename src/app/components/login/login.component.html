@@ -6,11 +6,22 @@
 </p>
 -->
 <!DOCTYPE html>
-<html>
-<head>
+<html style="
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  
+
+}
 form {border: 3px solid #f1f1f1;}
 
 input[type=text], input[type=password] {
@@ -47,7 +58,7 @@ button:hover {
 }
 
 img.avatar {
-  width: 10%;
+  width: 30%;
 
 }
 
@@ -71,14 +82,12 @@ span.psw {
   }
 }
 </style>
-</head>
-<body>
+<div style="box-shadow: 0px 0px 40px black;background: rgba(255,255,255,0.7);margin: auto;">
+<body id="fondologin" >
 
-<h2>Identificación</h2>
-
-<form action="/action_page.php">
+  <form action="/action_page.php" style="background-color: #fffefe;">
   <div class="imgcontainer">
-    <img src="assets/imagenes/Utemlogo.png" width="10%" alt="Avatar" class="avatar">
+    <img src="assets/imagenes/Utemlogo.png" alt="Avatar" class="avatar" >
   </div>
 
   <div class="container">
@@ -94,11 +103,16 @@ span.psw {
     </label>
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
+  <div class="container" style="background-color:#fffefe;">
     <button type="button" class="cancelbtn">Cancel</button>
     <span class="psw"><a href="#">¿Olvido su contraseña?</a></span>
   </div>
 </form>
 
+
+
+
+
 </body>
+</div>
 </html>
