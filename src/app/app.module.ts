@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ChartsModule } from 'ng2-charts';
 import { TeacherComponent } from './components/teacher/teacher.component';
 import { StudentComponent } from './components/student/student.component';
+import { ComparacionComponent } from './components/comparacion/comparacion.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StudentComponent } from './components/student/student.component';
     LoginComponent,
     HomeComponent,
     TeacherComponent,
-    StudentComponent
+    StudentComponent,
+    ComparacionComponent
   ],
   imports: [
     BrowserModule,
