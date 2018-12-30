@@ -11,7 +11,18 @@ import { TeacherComponent } from './components/teacher/teacher.component';
 import { StudentComponent } from './components/student/student.component';
 import { ComparacionComponent } from './components/comparacion/comparacion.component';
 import { RecuperarComponent } from './components/recuperar/recuperar.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes:Routes=[
+    {
+      path: '',
+      component:LoginComponent
+    },
+
+    {
+      path: 'home',component:HomeComponent
+    }
+]
 
 @NgModule({
   declarations: [
@@ -25,9 +36,11 @@ import { RecuperarComponent } from './components/recuperar/recuperar.component';
 
   ],
   imports: [
+      RouterModule.forRoot(appRoutes),
     BrowserModule,
     routing,
-    ChartsModule
+    ChartsModule,
+    
     //AppRoutingModule
   ],
   providers: [

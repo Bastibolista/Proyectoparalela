@@ -84,20 +84,27 @@ span.psw {
 </style>
 <div style="box-shadow: 0px 0px 40px black;background: rgba(255,255,255,0.7);margin: auto;">
 <body id="fondologin" >
-
-  <form action="/action_page.php" style="background-color: #fffefe;">
+  
+  <form (submit)="loginUser($event)" action="/action_page.php" style="background-color: #fffefe;">
   <div class="imgcontainer">
     <img src="assets/imagenes/Utemlogo.png" alt="Avatar" class="avatar" >
   </div>
 
   <div class="container">
-    <label for="uname"><b>Rut</b></label>
-    <input type="text" placeholder="Rut" name="uname" required>
-
-    <label for="psw"><b>Contraseña</b></label>
-    <input type="password" placeholder="Contraseña" name="psw" required>
-
-    <button onclick="location.href='home'" type="submit">Entrar</button>
+    <div>
+      <label for="uname"><b>Rut</b></label>
+      <input type="text" placeholder="Rut" name="uname" required>
+    </div>
+    
+    <div>
+      <label for="psw"><b>Contraseña</b></label>
+      <input type="password" placeholder="Contraseña" name="psw" required>
+    </div>
+    
+    <div>
+      <input type="submit" value="Login">
+    </div>
+    
     <label>
       <input type="checkbox" checked="checked" name="remember"> Recuerdame 
     </label>
