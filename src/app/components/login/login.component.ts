@@ -8,13 +8,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [PeticionesService]
 })
 export class LoginComponent implements OnInit {
   public usuario:LogUsuario;
+
   constructor(
       private router:Router,
-      private _http: HttpClient
+      private _http: HttpClient,
+      private _peticionesService:PeticionesService
 
     ) { 
 
@@ -25,14 +28,19 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }	
 
-  onSubmit(){
+  onSubmit(form){
+    this._peticionesService.sendUser(this.usuario).subscribe(
+      response=>{
+        console.log(response)
+      },
+      error=>{
+        console.log(<any>error);
+      }
 
+      );
     console.log("evento enviado");
     console.log(this.usuario);
-    this._http.post('/api/v1/students/',{
-      rut: this.usuario.rut
-    }).subscribe((data:any)=>{console.log(data)});
-
+    
 
   }
 
