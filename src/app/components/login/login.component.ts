@@ -4,6 +4,8 @@ import { LogUsuario } from '../models/log.usuario';
 import { FormsModule }   from '@angular/forms';
 import { PeticionesService } from '../services/peticiones.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { first } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +14,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providers: [PeticionesService]
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  error = '';
+  role:string;
+  apiKey:string;
   public usuario:LogUsuario;
 
   constructor(
@@ -29,9 +38,13 @@ export class LoginComponent implements OnInit {
   }	
 
   onSubmit(form){
-    this._peticionesService.login(this.usuario.rut,this.usuario.password).subscribe(
+    this._peticionesService.login(this.usuario.rut,this.usuario.password)
+    .pipe(first())
+    .subscribe(
       response=>{
-        console.log(response)
+        this.role=response.role;
+        this.apiKey=response.apiKey;
+        
       },
       error=>{
         console.log(<any>error);
