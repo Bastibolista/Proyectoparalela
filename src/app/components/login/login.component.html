@@ -1,3 +1,4 @@
+
 <!--
 <p>
   login works!
@@ -84,8 +85,16 @@ span.psw {
 </style>
 <div style="box-shadow: 0px 0px 40px black;background: rgba(255,255,255,0.7);margin: auto;">
 <body id="fondologin" >
-  
-  <form (submit)="loginUser($event)" action="/action_page.php" style="background-color: #fffefe;">
+  <!--<form (submit)="loginUser($event)" action="/action_page.php" style="background-color: #fffefe;">
+    <label for="rut">Rut</label><br>
+    <input type="text" name="rut"><br>
+    <label for="password">Contraseña</label><br>
+    <input type="text" name="password"><br>
+    <input type="submit" name="Entrar">
+
+  </form> -->
+  <!--<form (submit)="loginUser($event)" action="/action_page.php" style="background-color: #fffefe;">-->
+  <form #formLog="ngForm" (ngSubmit)="onSubmit()" style="background-color: #fffefe;">
   <div class="imgcontainer">
     <img src="assets/imagenes/Utemlogo.png" alt="Avatar" class="avatar" >
   </div>
@@ -93,7 +102,7 @@ span.psw {
   <div class="container">
     <div>
       <label for="uname"><b>Rut</b></label>
-      <input type="text" placeholder="Rut" name="uname" required>
+      <input type="text" placeholder="Rut" name="uname" required #rut="ngModel" [(ngModel)]="usuario.password">
     </div>
     
     <div>

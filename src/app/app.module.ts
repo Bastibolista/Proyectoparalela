@@ -13,6 +13,7 @@ import { StudentComponent } from './components/student/student.component';
 import { ComparacionComponent } from './components/comparacion/comparacion.component';
 import { RecuperarComponent } from './components/recuperar/recuperar.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule }   from '@angular/forms';
 
 const appRoutes:Routes=[
     {
@@ -41,7 +42,8 @@ const appRoutes:Routes=[
     BrowserModule,
     routing,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
     
     //AppRoutingModule
   ],

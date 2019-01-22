@@ -1,17 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LogUsuario } from '../models/log.usuario';
+import { FormsModule }   from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  public usuario:LogUsuario;
+  constructor(private router:Router) { 
+    this.usuario = new LogUsuario('','')
+  }
 
   ngOnInit() {
   }	
-  loginUser(e){
+
+  onSubmit(){
+    console.log("evento enviado");
+    console.log(this.usuario);
+  }
+
+
+
+  /*loginUser(e){
 
   		e.preventDefault();
   		console.log(e);
@@ -23,6 +36,6 @@ export class LoginComponent implements OnInit {
   		}else{
   			alert("Datos Incorrectos, Intente nuevamente");
   		}
-  }
+  }*/
 
 }
