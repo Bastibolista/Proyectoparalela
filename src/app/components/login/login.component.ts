@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    //this.returnUrl = this.router.snapshot.queryParams['returnUrl'] || '/';
   }	
 
   onSubmit(form){
@@ -45,6 +46,7 @@ export class LoginComponent implements OnInit {
         this.role=response.role;
         this.apiKey=response.apiKey;
         
+        
       },
       error=>{
         console.log(<any>error);
@@ -53,7 +55,12 @@ export class LoginComponent implements OnInit {
       );
     console.log("evento enviado");
     console.log(this.usuario);
-    
+    if(this.role=='Estudiante'){
+          this.router.navigate(['/teacher']);
+        }
+        if (this.role=='Docente') {
+          this.router.navigate(['/student']);
+        }
 
   }
 
