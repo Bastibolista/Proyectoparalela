@@ -69,7 +69,7 @@ const appRoutes:Routes=[
     },
 
     {
-      path: 'home',component:HomeComponent
+      path: 'login',component:LoginComponent
     }
 ]
 
