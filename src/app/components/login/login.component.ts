@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   }	
 
   onSubmit(form){
-    this._peticionesService.sendUser(this.usuario).subscribe(
+    this._peticionesService.login(this.usuario.rut,this.usuario.password).subscribe(
       response=>{
         console.log(response)
       },

@@ -10,20 +10,39 @@ export class PeticionesService{
 		public _http: HttpClient
 		){
 
-		this.url="https://api.sebastian.cl/academia/swagger-ui.html#/"
+		this.url="https://api.sebastian.cl/academia/"
 	}
 /*	this._http.post('https://api.sebastian.cl/academia/swagger-ui.html#/api/v1/students/',sampleJSON,{
       rut: this.usuario.rut,
       contraseña: this.usuario.password
     }).subscribe((data:any)=>{console.log(data)});
-*/
+*/	
+	login(rut: string, contraseña: string) {
+        return this._http.post<any>(this.url+'api/v1/authentication/authenticate', { rut, contraseña })
+            .pipe(map(user => {
+                // login successful if there's a user in the response
+                if (user) {
+                    // store user details and basic auth credentials in local storage 
+                    // to keep user logged in between page refreshes
+                    user.authdata = window.btoa(rut + ':' + contraseña);
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                }
+
+                return user;
+            }));
+    }
+
+    logout() {
+        // remove user from local storage to log user out
+        localStorage.removeItem('currentUser');
+    }
 
 
 	sendUser(user): Observable<any>{
 		let params = JSON.stringify(user);
 		let headers= new HttpHeaders().set('Content-Type','aplication/json');
 
-		return this._http.post<any>(this.url+'api/v1/authentication/authenticate',params,{headers:headers});
+		return this._http.post<any>(this.url+'api/v1/authentication/authenticate',params);
 	}
 
 	/*login(username: string, password: string) {
