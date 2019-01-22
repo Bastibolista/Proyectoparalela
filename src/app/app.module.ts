@@ -16,6 +16,53 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { HomeDocenteComponent } from './home-docente/home-docente.component';
 
+
+import { Injectable } from '@angular/core';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { Observable,throwError } from 'rxjs';
+
+import { catchError } from 'rxjs/operators';
+
+import { PeticionesService } from './components/services/peticiones.service';
+
+@Injectable()
+export class BasicAuthInterceptor implements HttpInterceptor {
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        // add authorization header with basic auth credentials if available
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser && currentUser.authdata) {
+            request = request.clone({
+                setHeaders: { 
+                    Authorization: `Basic ${currentUser.authdata}`
+                }
+            });
+        }
+
+        return next.handle(request);
+    }
+}
+
+@Injectable()
+export class ErrorInterceptor implements HttpInterceptor {
+    constructor(private authenticationService: PeticionesService) {}
+
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        return next.handle(request).pipe(catchError(err => {
+            if (err.status === 401) {
+                // auto logout if 401 response returned from api
+                this.authenticationService.logout();
+                location.reload(true);
+            }
+            
+            const error = err.error.message || err.statusText;
+            return throwError(error);
+        }))
+    }
+}
+
+
+
+
 const appRoutes:Routes=[
     {
       path: '',
@@ -23,7 +70,7 @@ const appRoutes:Routes=[
     },
 
     {
-      path: 'home',component:HomeComponent
+      path: 'login',component:LoginComponent
     }
 ]
 
@@ -36,7 +83,11 @@ const appRoutes:Routes=[
     StudentComponent,
     ComparacionComponent,
     RecuperarComponent,
+<<<<<<< HEAD
     HomeDocenteComponent,
+=======
+    
+>>>>>>> c0f44b8002719e8b050471ddbd23b9dd4a97b771
 
   ],
   imports: [

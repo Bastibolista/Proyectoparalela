@@ -1,25 +1,71 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Routes,RouterModule } from '@angular/router';
 import { LogUsuario } from '../models/log.usuario';
 import { FormsModule }   from '@angular/forms';
+import { PeticionesService } from '../services/peticiones.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { first } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [PeticionesService],
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  error = '';
+  role:string;
+  apiKey:string;
   public usuario:LogUsuario;
-  constructor(private router:Router) { 
+
+  constructor(
+      private router:Router,
+      private _http: HttpClient,
+      private _peticionesService:PeticionesService
+
+    ) {
+
     this.usuario = new LogUsuario('','')
+    
+    //this.returnUrl = this.router.navigate['/login'];
   }
 
   ngOnInit() {
-  }	
+    this._peticionesService.logout();
+    this.returnUrl = this.router.navigate['/login'];
+  }
 
-  onSubmit(){
+  onSubmit(form){
+    this._peticionesService.login(this.usuario.rut,this.usuario.password)
+    .pipe(first())
+    .subscribe(
+      response=>{
+        this.role=response.role;
+        this.apiKey=response.apiKey;
+
+
+      },
+      error=>{
+        console.log(<any>error);
+      }
+
+      );
     console.log("evento enviado");
     console.log(this.usuario);
+    if(this.role=='Estudiante'){
+          this.router.navigate(['/student']);
+        }
+        if (this.role=='Docente') {
+          this.router.navigate(['/teacher']);
+        }
+
   }
 
 
