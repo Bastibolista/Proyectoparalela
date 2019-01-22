@@ -16,15 +16,15 @@ export class PeticionesService{
       rut: this.usuario.rut,
       contraseña: this.usuario.password
     }).subscribe((data:any)=>{console.log(data)});
-*/	
-	login(rut: string, contraseña: string) {
-        return this._http.post<any>(this.url+'api/v1/authentication/authenticate', { rut, contraseña })
+*/
+	login(rut: string, password: string) {
+        return this._http.post<any>(this.url+'api/v1/authentication/authenticate', { rut, password })
             .pipe(map(user => {
                 // login successful if there's a user in the response
                 if (user) {
-                    // store user details and basic auth credentials in local storage 
+                    // store user details and basic auth credentials in local storage
                     // to keep user logged in between page refreshes
-                    user.authdata = window.btoa(rut + ':' + contraseña);
+                    user.authdata = window.btoa(rut + ':' + password);
                     localStorage.setItem('currentUser', JSON.stringify(user));
                 }
 
