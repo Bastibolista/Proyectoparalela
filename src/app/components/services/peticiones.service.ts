@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
+
 @Injectable()
 export class PeticionesService{
 	public url:string;
@@ -14,7 +15,7 @@ export class PeticionesService{
 
 
 
-	getUser(){
+	sendUser(){
 		return this._http.get(this.url+'/students/')
 	}
 

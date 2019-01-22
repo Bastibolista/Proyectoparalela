@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LogUsuario } from '../models/log.usuario';
 import { FormsModule }   from '@angular/forms';
+import { PeticionesService } from '../services/peticiones.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +12,28 @@ import { FormsModule }   from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   public usuario:LogUsuario;
-  constructor(private router:Router) { 
+  constructor(
+      private router:Router,
+      private _http: HttpClient
+
+    ) { 
+
     this.usuario = new LogUsuario('','')
+
   }
 
   ngOnInit() {
   }	
 
   onSubmit(){
+
     console.log("evento enviado");
     console.log(this.usuario);
+    this._http.post('/api/v1/students/',{
+      rut: this.usuario.rut
+    }).subscribe((data:any)=>{console.log(data)});
+
+
   }
 
 
