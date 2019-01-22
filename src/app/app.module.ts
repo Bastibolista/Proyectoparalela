@@ -14,6 +14,7 @@ import { ComparacionComponent } from './components/comparacion/comparacion.compo
 import { RecuperarComponent } from './components/recuperar/recuperar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
+import { HomeDocenteComponent } from './home-docente/home-docente.component';
 
 const appRoutes:Routes=[
     {
@@ -35,6 +36,7 @@ const appRoutes:Routes=[
     StudentComponent,
     ComparacionComponent,
     RecuperarComponent,
+    HomeDocenteComponent,
 
   ],
   imports: [
