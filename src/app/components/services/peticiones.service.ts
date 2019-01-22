@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({providedIn:'root'})
 export class PeticionesService{
 	public url:string;
 	constructor(

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Routes,RouterModule } from '@angular/router';
 import { LogUsuario } from '../models/log.usuario';
 import { FormsModule }   from '@angular/forms';
 import { PeticionesService } from '../services/peticiones.service';
@@ -33,11 +33,13 @@ export class LoginComponent implements OnInit {
     ) {
 
     this.usuario = new LogUsuario('','')
-
+    
+    //this.returnUrl = this.router.navigate['/login'];
   }
 
   ngOnInit() {
-    //this.returnUrl = this.router.snapshot.queryParams['returnUrl'] || '/';
+    this._peticionesService.logout();
+    this.returnUrl = this.router.navigate['/login'];
   }
 
   onSubmit(form){
