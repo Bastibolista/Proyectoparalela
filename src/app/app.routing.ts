@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
         }
 
         // not logged in so redirect to login page with the return url
-        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+        this.router.navigate(['/login/'], { queryParams: { returnUrl: state.url }});
         return false;
     }
 }
@@ -40,7 +40,7 @@ const appRoutes: Routes = [
 	{path: 'comparacion', component: ComparacionComponent},
 	{path: 'recuperar', component: RecuperarComponent},
 	{path: '**', component: LoginComponent}
-	
+
 
 ];
 
