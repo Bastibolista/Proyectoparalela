@@ -16,7 +16,7 @@ export class PeticionesService{
       contraseña: this.usuario.password
     }).subscribe((data:any)=>{console.log(data)});
 <<<<<<< HEAD
-*/	
+*/
 
 	login(rut: string, password: string) {
         return this._http.post<any>(this.url+'api/v1/authentication/authenticate', { rut, password })
@@ -39,7 +39,7 @@ export class PeticionesService{
         //localStorage.getItem(rut)
     }
 
-    
+
 
 
 	sendUser(user): Observable<any>{
@@ -51,7 +51,8 @@ export class PeticionesService{
 
     getUser(rut: string){
         //let params = JSON.stringify(user);
-        return this._http.get<any>(this.url+'api/v1/courses/students'+{rut})
+        return this._http.get<any>(this.url+'api/v1/courses/students/'+this.rut)
+        //result => {this.user = result}
         .subscribe(
             response=>{
             console.log(response);
@@ -63,11 +64,9 @@ export class PeticionesService{
         console.log(<any>error);
       }
             );
-        
-
     }
 
- 
+
 
 	/*login(username: string, password: string) {
         return this._http.post<any>(this.url+'api/v1/students', { username: username, password: password })
