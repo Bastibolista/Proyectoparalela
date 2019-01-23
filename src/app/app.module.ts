@@ -14,6 +14,7 @@ import { ComparacionComponent } from './components/comparacion/comparacion.compo
 import { RecuperarComponent } from './components/recuperar/recuperar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
+import { HomeDocenteComponent } from './home-docente/home-docente.component';
 
 
 import { Injectable } from '@angular/core';
@@ -83,8 +84,15 @@ const appRoutes:Routes=[
     StudentComponent,
     ComparacionComponent,
     RecuperarComponent,
+<<<<<<< HEAD
     HomeEstudianteComponent,
+=======
+<<<<<<< HEAD
+    HomeDocenteComponent,
+=======
+>>>>>>> c250ea6b37e35ab4476f0a402dac980d548233c6
     
+>>>>>>> c0f44b8002719e8b050471ddbd23b9dd4a97b771
 
   ],
   imports: [
