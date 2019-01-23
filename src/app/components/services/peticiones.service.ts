@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable({providedIn:'root'})
 export class PeticionesService{
+    public rut:string;
 	public url:string;
 	constructor(
 		public _http: HttpClient
@@ -37,6 +38,11 @@ export class PeticionesService{
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
+        //localStorage.getItem(rut)
+    }
+
+    setRut(_rut){
+        this.rut=_rut;
     }
 
 
@@ -46,6 +52,12 @@ export class PeticionesService{
 
 		return this._http.post<any>(this.url+'api/v1/authentication/authenticate',params);
 	}
+
+    getUser(rut){
+        this._http.get<any>(this.url+'api/v1/courses/students')///?rut=${this.name}
+    }
+
+
 
 	/*login(username: string, password: string) {
         return this._http.post<any>(this.url+'api/v1/students', { username: username, password: password })
