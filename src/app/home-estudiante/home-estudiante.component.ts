@@ -12,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providers: [PeticionesService],
 })
 export class HomeEstudianteComponent implements OnInit {
-	@Input() _rut:string;
+	//@Input() _rut:string;
 	//rut:string;
 	//public GetUsuario:GetUsuario;
   constructor(
@@ -26,7 +26,7 @@ export class HomeEstudianteComponent implements OnInit {
 
   ngOnInit() {
   	//this.rut=this._peticionesService.rut;
-  	console.log(this._rut);
+  	//console.log(this._rut);
 
 
 

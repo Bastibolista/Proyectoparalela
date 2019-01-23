@@ -14,7 +14,7 @@ import { ComparacionComponent } from './components/comparacion/comparacion.compo
 import { RecuperarComponent } from './components/recuperar/recuperar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
-import { HomeDocenteComponent } from './home-docente/home-docente.component';
+//import { HomeDocenteComponent } from './home-docente/home-docente.component';
 
 
 import { Injectable } from '@angular/core';
@@ -24,11 +24,10 @@ import { Observable,throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { PeticionesService } from './components/services/peticiones.service';
-<<<<<<< HEAD
+
 import { HomeEstudianteComponent } from './home-estudiante/home-estudiante.component';
-=======
 import { HomeDocenteComponent } from './components/home-docente/home-docente.component';
->>>>>>> 4b1c2fbf36f536b43f2b8cf8d6e7a2236d9dbfda
+
 
 @Injectable()
 export class BasicAuthInterceptor implements HttpInterceptor {
