@@ -91,14 +91,18 @@ span.psw {
   </div>
 
   <div class="container">
+    <form (ngSubmit)="guardar()" #forma="ngForm">
     <label for="uname"><b>Rut</b></label>
-    <input type="text" placeholder="Rut" name="uname" required>
+    <input [(ngModel)]="olvido.rut" 
+        name="rut"
+      type="text" placeholder="Rut" required>
 
     <button type="submit">Recuperar</button>
+  </form>
   </div>
 
   <div class="container" style="background-color:#fffefe;">
-    <button onclick="location.href='login'" type="button" class="cancelbtn">Cancel</button>
+    <button [disabled]="!forma.valid" onclick="location.href='login'" type="button" class="cancelbtn">Cancel</button>
   </div>
 </form>
 
