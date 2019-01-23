@@ -5,3 +5,13 @@ export class LogUsuario{
 	){}
 
 }
+
+export class GetUsuario{
+	constructor(
+		public ordinal:string,
+		public subjectCode:string,
+		public year:string
+	){}
+
+}
+

@@ -7,6 +7,8 @@ import { TeacherComponent } from './components/teacher/teacher.component';
 import { StudentComponent } from './components/student/student.component';
 import { ComparacionComponent } from './components/comparacion/comparacion.component';
 import { RecuperarComponent } from './components/recuperar/recuperar.component';
+import { HomeEstudianteComponent } from './home-estudiante/home-estudiante.component';
+
 //import { AuthGuard } from './_guards';
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
 	{path: 'student', component: StudentComponent,canActivate:[AuthGuard]},
 	{path: 'comparacion', component: ComparacionComponent,canActivate:[AuthGuard]},
 	{path: 'recuperar', component: RecuperarComponent,canActivate:[AuthGuard]},
+    {path: 'Estudiante', component: HomeEstudianteComponent,canActivate:[AuthGuard]},
 	{path: '**', component: LoginComponent}
 
 

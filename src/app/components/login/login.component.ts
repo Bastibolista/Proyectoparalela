@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   error = '';
+  rut:string;
   role:string;
   apiKey:string;
   public usuario:LogUsuario;
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.router.navigate['/login'];
   }
 
+
   onSubmit(form){
     this._peticionesService.login(this.usuario.rut,this.usuario.password)
     .pipe(first())
@@ -49,6 +51,8 @@ export class LoginComponent implements OnInit {
       response=>{
         this.role=response.role;
         this.apiKey=response.apiKey;
+        this.rut=response.rut;
+        this._peticionesService.setRut(this.rut);
 
 
       },
@@ -60,7 +64,7 @@ export class LoginComponent implements OnInit {
     console.log("evento enviado");
     console.log(this.usuario);
     if(this.role=='Estudiante'){
-          this.router.navigate(['/student']);
+          this.router.navigate(['/Estudiante']);
         }
         if (this.role=='Docente') {
           this.router.navigate(['/teacher']);

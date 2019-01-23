@@ -23,6 +23,7 @@ import { Observable,throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { PeticionesService } from './components/services/peticiones.service';
+import { HomeEstudianteComponent } from './home-estudiante/home-estudiante.component';
 
 @Injectable()
 export class BasicAuthInterceptor implements HttpInterceptor {
@@ -82,6 +83,7 @@ const appRoutes:Routes=[
     StudentComponent,
     ComparacionComponent,
     RecuperarComponent,
+    HomeEstudianteComponent,
     
 
   ],
