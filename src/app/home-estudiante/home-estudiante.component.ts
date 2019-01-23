@@ -4,6 +4,7 @@ import { PeticionesService } from '../components/services/peticiones.service';
 //import { LoginComponent } from '../components/login/login.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { GetUsuario } from '../components/models/log.usuario';
+import { User, setUser } from '../components/models/log.usuario';
 
 @Component({
   selector: 'app-home-estudiante',
@@ -12,62 +13,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providers: [PeticionesService],
 })
 export class HomeEstudianteComponent implements OnInit {
-	//@Input() _rut:string;
-	//rut:string;
-	//public GetUsuario:GetUsuario;
+	private isUserLoggedIn;
+  	public usserLogged:User;
+  	public usuario: setUser;
+  	rut:string;
+  	apiKey:string;
+
   constructor(
-  	//private router:Router,
-  	//private _http: HttpClient,
-  	//private _peticionesService:PeticionesService,
-  	//private _loginDatos:LoginComponent
+  		
+  		private _peticionesService:PeticionesService
   	) {
-  		//this.GetUsuario = new GetUsuario('','','')
+  		this.usuario = new setUser('',''),
+  		this.usserLogged=JSON.parse(localStorage.getItem('currentUser'));
   	}
 
   ngOnInit() {
-  	//this.rut=this._peticionesService.rut;
-  	//console.log(this._rut);
-
-
-
+  	this.rut=this.usserLogged.rut;
+  	this.apiKey=this.usserLogged.apiKey;
+  	this.usuario.rut=this.rut;
+  	this.usuario.apiKey=this.apiKey;
+  	console.log(this._peticionesService.getUser(this.usuario.rut));
   }
 
 }
 
-/*
-
-import { Component, OnInit } from '@angular/core';
-import { Router, Routes,RouterModule } from '@angular/router';
-import { PeticionesService } from '../components/services/peticiones.service';
-import { LoginComponent } from '../components/login/login.component';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { GetUsuario } from '../components/models/log.usuario';
-
-@Component({
-  selector: 'app-home-estudiante',
-  templateUrl: './home-estudiante.component.html',
-  styleUrls: ['./home-estudiante.component.css'],
-  providers: [PeticionesService],
-})
-export class HomeEstudianteComponent implements OnInit {
-	rut:string;
-	public GetUsuario:GetUsuario;
-  constructor(
-  	private router:Router,
-  	private _http: HttpClient,
-  	private _peticionesService:PeticionesService,
-  	private _loginDatos:LoginComponent
-  	) {
-  		//this.GetUsuario = new GetUsuario('','','')
-  	}
-
-  ngOnInit() {
-  	this.rut=this._loginDatos.rut;
-  	console.log(this.rut);
-
-  }
-
-}
-
-
-*/

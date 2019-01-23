@@ -41,20 +41,32 @@ export class PeticionesService{
         //localStorage.getItem(rut)
     }
 
-    setRut(_rut){
-        this.rut=_rut;
-    }
+    
 
 
 	sendUser(user): Observable<any>{
 		let params = JSON.stringify(user);
 		let headers= new HttpHeaders().set('Content-Type','aplication/json');
 
-		return this._http.post<any>(this.url+'api/v1/authentication/authenticate',params);
+		return this._http.post<any>(this.url+'api/v1/authentication/authenticate',{params});
 	}
 
-    getUser(rut){
-        this._http.get<any>(this.url+'api/v1/courses/students')///?rut=${this.name}
+    getUser(rut: string){
+        //let params = JSON.stringify(user);
+        return this._http.get<any>(this.url+'api/v1/courses/students'+{rut})
+        .subscribe(
+            response=>{
+            console.log(response);
+        //this._peticionesService.setRut(this.rut);
+
+
+      },
+      error=>{
+        console.log(<any>error);
+      }
+            );
+        
+
     }
 
 

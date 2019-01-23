@@ -15,3 +15,22 @@ export class GetUsuario{
 
 }
 
+export class User{
+	constructor(
+		public apiKey:string,
+		public authdata:string,
+		public email:string,
+		public role:string,
+		public rut:string
+	){}
+
+}
+
+export class setUser{
+	
+	constructor(
+		public apiKey:string,
+		public rut:string
+
+	) {}
+}

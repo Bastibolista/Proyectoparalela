@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         this.role=response.role;
         this.apiKey=response.apiKey;
         this.rut=response.rut;
-        this._peticionesService.setRut(this.rut);
+        //this._peticionesService.setRut(this.rut);
 
 
       },
