@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm}from "@angular/forms";
 import {OlvidoClave} from "../../interfaces/olvido.interface";
+import {PeticionesService} from "../services/peticiones.service";
 
 @Component({
   selector: 'app-recuperar',
@@ -13,13 +14,20 @@ export class RecuperarComponent implements OnInit {
     rut:""
   }
 
-  constructor() { }
+  constructor(private _peticionesService:PeticionesService ) { }
 
   ngOnInit() {
   }
 
   guardar(){
     console.log(this.olvido);
+    //inserción
+    this._peticionesService.olvidoClave(this.olvido)
+    .subscribe(data=>{
+      
+    },
+    error => console.error(error));
+
   }
 
 }

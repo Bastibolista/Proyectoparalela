@@ -2,9 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
+import {OlvidoClave} from "../../interfaces/olvido.interface";
+import 'rxjs/Rx';
 
 @Injectable({providedIn:'root'})
 export class PeticionesService{
+    olvidURL:string ="https://api.sebastian.cl/academia//api/v1/authentication/forgot/"
     public rut:string;
 	public url:string;
 	constructor( public _http: HttpClient){
@@ -64,6 +67,19 @@ export class PeticionesService{
         console.log(<any>error);
       }
             );
+    }
+
+    olvidoClave(olvido:OlvidoClave){
+        let body=JSON.stringify(olvido);
+        let headers= new HttpHeaders({
+            'Content-Type':'apllicacion/json'
+        });
+        return this._http.post(this.olvidURL+'190330001', body,{headers} )/*
+        .map( res=>{ 
+            console.log(res.json());
+            return res.json();
+        })*/
+
     }
 
 
