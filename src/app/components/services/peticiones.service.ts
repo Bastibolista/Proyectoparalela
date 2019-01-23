@@ -51,7 +51,7 @@ export class PeticionesService{
 
     getUser(rut: string){
         //let params = JSON.stringify(user);
-        return this._http.get<any>(this.url+'api/v1/courses/students'+{rut})
+        return this._http.get<any>(this.url+'api/v1/courses/students/'+{rut})
         .subscribe(
             response=>{
             console.log(response);
