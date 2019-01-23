@@ -32,7 +32,7 @@ export class HomeEstudianteComponent implements OnInit {
   	this.apiKey=this.usserLogged.apiKey;
   	this.usuario.rut=this.rut;
   	this.usuario.apiKey=this.apiKey;
-  	console.log(this._peticionesService.getUser(this.usuario.rut));
+  	console.log(this._peticionesService.getUser(this.apiKey,this.rut));
   }
 
 }

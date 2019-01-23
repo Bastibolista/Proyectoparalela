@@ -2,9 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
+import {OlvidoClave} from "../../interfaces/olvido.interface";
+import 'rxjs/Rx';
+import { User, setUser } from '../models/log.usuario';
 
 @Injectable({providedIn:'root'})
 export class PeticionesService{
+    olvidURL:string ="https://api.sebastian.cl/academia//api/v1/authentication/forgot/"
     public rut:string;
 	public url:string;
 	constructor( public _http: HttpClient){
@@ -16,7 +20,7 @@ export class PeticionesService{
       contraseña: this.usuario.password
     }).subscribe((data:any)=>{console.log(data)});
 <<<<<<< HEAD
-*/	
+*/
 
 	login(rut: string, password: string) {
         return this._http.post<any>(this.url+'api/v1/authentication/authenticate', { rut, password })
@@ -39,7 +43,7 @@ export class PeticionesService{
         //localStorage.getItem(rut)
     }
 
-    
+
 
 
 	sendUser(user): Observable<any>{
@@ -49,9 +53,11 @@ export class PeticionesService{
 		return this._http.post<any>(this.url+'api/v1/authentication/authenticate',{params});
 	}
 
-    getUser(rut: string){
+    getUser(apiKey: string,rut:string){
         //let params = JSON.stringify(user);
-        return this._http.get<any>(this.url+'api/v1/courses/students/'+{rut})
+        let option={headers:new HttpHeaders({'X-API-KEY':apiKey})};
+        return this._http.get<any>(this.url+'api/v1/courses/students/'+rut,{headers: new HttpHeaders().set("X-API-KEY", apiKey)})
+
         .subscribe(
             response=>{
             console.log(response);
@@ -63,11 +69,22 @@ export class PeticionesService{
         console.log(<any>error);
       }
             );
-        
+    }
+
+    olvidoClave(olvido:OlvidoClave){
+        let body=JSON.stringify(olvido);
+        let headers= new HttpHeaders({
+            'Content-Type':'apllicacion/json'
+        });
+        return this._http.post(this.olvidURL+'190330001', body,{headers} )/*
+        .map( res=>{ 
+            console.log(res.json());
+            return res.json();
+        })*/
 
     }
 
- 
+
 
 	/*login(username: string, password: string) {
         return this._http.post<any>(this.url+'api/v1/students', { username: username, password: password })
