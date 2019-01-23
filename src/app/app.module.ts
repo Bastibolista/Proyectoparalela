@@ -104,7 +104,8 @@ const appRoutes:Routes=[
     //AppRoutingModule
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    PeticionesService
   ],
   bootstrap: [AppComponent]
 })

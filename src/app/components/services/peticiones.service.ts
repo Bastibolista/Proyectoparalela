@@ -7,9 +7,7 @@ import { map } from 'rxjs/operators';
 export class PeticionesService{
     public rut:string;
 	public url:string;
-	constructor(
-		public _http: HttpClient
-		){
+	constructor( public _http: HttpClient){
 
 		this.url="https://api.sebastian.cl/academia/"
 	}
@@ -57,7 +55,7 @@ export class PeticionesService{
         this._http.get<any>(this.url+'api/v1/courses/students')///?rut=${this.name}
     }
 
-
+ 
 
 	/*login(username: string, password: string) {
         return this._http.post<any>(this.url+'api/v1/students', { username: username, password: password })
