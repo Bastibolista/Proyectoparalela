@@ -107,11 +107,10 @@ span.psw {
     
     <div>
       <label for="psw"><b>Contraseña</b></label>
-<<<<<<< HEAD
-      <input type="password" placeholder="Contraseña" name="psw" required #rut="ngModel" [(ngModel)]="usuario.password">>
-=======
       <input type="password" placeholder="Contraseña" name="psw" required #rut="ngModel" [(ngModel)]="usuario.password">
->>>>>>> c0f44b8002719e8b050471ddbd23b9dd4a97b771
+
+ 
+
     </div>
     
     <div>
@@ -131,6 +130,7 @@ span.psw {
 </form>
 
 
+<home-estudiante *ngIf="_rut" [rut]="_rut"></home-estudiante>
 
 
 

@@ -84,15 +84,8 @@ const appRoutes:Routes=[
     StudentComponent,
     ComparacionComponent,
     RecuperarComponent,
-<<<<<<< HEAD
     HomeEstudianteComponent,
-=======
-<<<<<<< HEAD
     HomeDocenteComponent,
-=======
->>>>>>> c250ea6b37e35ab4476f0a402dac980d548233c6
-    
->>>>>>> c0f44b8002719e8b050471ddbd23b9dd4a97b771
 
   ],
   imports: [
