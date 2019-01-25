@@ -1,3 +1,19 @@
-<p>
-  grafico-alumno works!
-</p>
+<html>
+  <style type="text/css">
+    h1{
+      text-align: center;
+    }
+    p{
+      text-align: center;
+    }
+  </style>
+  <header>
+    <ul>
+      <li id="nombre"><a [routerLink]="['/HomeEstudiante']">Nombre</a></li>
+      <li><a [routerLink]="['/HomeEstudiante']">Inicio</a></li>
+      <li><a [routerLink]="['/ListadoEstudiante']">Listado cursos</a></li>
+      <li><a [routerLink]="['/GraficoAlumno']">Grafico curso</a></li>
+      <li><a [routerLink]="['']">Salir</a></li>
+    </ul>
+  </header>
+</html>

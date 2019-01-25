@@ -8,7 +8,11 @@ import { StudentComponent } from './components/student/student.component';
 import { ComparacionComponent } from './components/comparacion/comparacion.component';
 import { RecuperarComponent } from './components/recuperar/recuperar.component';
 import { HomeEstudianteComponent } from './components/home-estudiante/home-estudiante.component';
-import { HomeDocenteComponent } from './components/home-docente/home-docente.component'
+import { HomeDocenteComponent } from './components/home-docente/home-docente.component';
+import { ListadoEstudianteComponent } from './components/listado-estudiante/listado-estudiante.component';
+import { ListadoDocenteComponent } from './components/listado-docente/listado-docente.component';
+import { GraficoAlumnoComponent } from './components/grafico-alumno/grafico-alumno.component';
+import { AvisoDocenteComponent } from './components/aviso-docente/aviso-docente.component';
 
 //import { AuthGuard } from './_guards';
 import { Injectable } from '@angular/core';
@@ -44,6 +48,10 @@ const appRoutes: Routes = [
 	{path: 'recuperar', component: RecuperarComponent,canActivate:[AuthGuard]},
   {path: 'HomeEstudiante', component: HomeEstudianteComponent,canActivate:[AuthGuard]},
   {path: 'HomeDocente', component: HomeDocenteComponent,canActivate:[AuthGuard]},
+  {path: 'ListadoDocente', component: ListadoDocenteComponent,canActivate:[AuthGuard]},
+  {path: 'ListadoEstudiante', component: ListadoEstudianteComponent,canActivate:[AuthGuard]},
+  {path: 'GraficoAlumno', component: GraficoAlumnoComponent,canActivate:[AuthGuard]},
+  {path: 'AvisoDocente', component: AvisoDocenteComponent,canActivate:[AuthGuard]},
 	{path: '**', component: LoginComponent}
 
 

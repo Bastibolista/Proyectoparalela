@@ -1,3 +1,20 @@
-<p>
-  aviso-docente works!
-</p>
+<html>
+<style type="text/css">
+  h1{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
+
+  </style>
+ <header>
+    <ul>
+      <li id="nombre"><a [routerLink]=" ['/HomeDocente']">Nombre</a></li>
+      <li><a [routerLink]="['/HomeDocente']">Inicio</a></li>
+      <li><a [routerLink]="['/ListadoDocente']">Listado cursos</a></li>
+      <li><a [routerLink]="['/AvisoDocente']">Avisos</a></li>
+      <li><a [routerLink]="['']">Salir</a></li>
+    </ul>
+  </header>
+</html>
