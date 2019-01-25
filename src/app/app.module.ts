@@ -30,6 +30,8 @@ import { HomeEstudianteComponent } from './home-estudiante/home-estudiante.compo
 import { HomeDocenteComponent } from './components/home-docente/home-docente.component';
 import { ListadoEstudianteComponent } from './components/listado-estudiante/listado-estudiante.component';
 import { GraficoAlumnoComponent } from './components/grafico-alumno/grafico-alumno.component';
+import { AvisoDocenteComponent } from './components/aviso-docente/aviso-docente.component';
+import { ListadoDocenteComponent } from './components/listado-docente/listado-docente.component';
 
 
 @Injectable()
@@ -94,6 +96,8 @@ const appRoutes:Routes=[
     HomeDocenteComponent,
     ListadoEstudianteComponent,
     GraficoAlumnoComponent,
+    AvisoDocenteComponent,
+    ListadoDocenteComponent,
 
 
   ],
