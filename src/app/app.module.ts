@@ -26,7 +26,7 @@ import { catchError } from 'rxjs/operators';
 
 import { PeticionesService } from './components/services/peticiones.service';
 
-import { HomeEstudianteComponent } from './home-estudiante/home-estudiante.component';
+import { HomeEstudianteComponent } from './components/home-estudiante/home-estudiante.component';
 import { HomeDocenteComponent } from './components/home-docente/home-docente.component';
 import { ListadoEstudianteComponent } from './components/listado-estudiante/listado-estudiante.component';
 import { GraficoAlumnoComponent } from './components/grafico-alumno/grafico-alumno.component';
@@ -41,7 +41,7 @@ export class BasicAuthInterceptor implements HttpInterceptor {
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.authdata) {
             request = request.clone({
-                setHeaders: { 
+                setHeaders: {
                     Authorization: `Basic ${currentUser.authdata}`
                 }
             });
@@ -62,7 +62,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.authenticationService.logout();
                 location.reload(true);
             }
-            
+
             const error = err.error.message || err.statusText;
             return throwError(error);
         }))
@@ -108,7 +108,7 @@ const appRoutes:Routes=[
     ChartsModule,
     HttpClientModule,
     FormsModule
-    
+
     //AppRoutingModule
   ],
   providers: [

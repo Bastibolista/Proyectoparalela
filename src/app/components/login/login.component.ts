@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     ) {
 
     this.usuario = new LogUsuario('','')
-    
+
     //this.returnUrl = this.router.navigate['/login'];
   }
 
@@ -64,10 +64,10 @@ export class LoginComponent implements OnInit {
     console.log("evento enviado");
     console.log(this.usuario);
     if(this.role=='Estudiante'){
-          this.router.navigate(['/Estudiante']);
+          this.router.navigate(['/HomeEstudiante']);
         }
-        if (this.role=='Docente') {
-          this.router.navigate(['/teacher']);
+    else if (this.role=='Docente') {
+          this.router.navigate(['/HomeDocente']);
         }
 
   }
