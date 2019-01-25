@@ -28,6 +28,7 @@ import { PeticionesService } from './components/services/peticiones.service';
 
 import { HomeEstudianteComponent } from './home-estudiante/home-estudiante.component';
 import { HomeDocenteComponent } from './components/home-docente/home-docente.component';
+import { ListadoEstudianteComponent } from './components/listado-estudiante/listado-estudiante.component';
 
 
 @Injectable()
@@ -90,6 +91,7 @@ const appRoutes:Routes=[
     RecuperarComponent,
     HomeEstudianteComponent,
     HomeDocenteComponent,
+    ListadoEstudianteComponent,
 
 
   ],
