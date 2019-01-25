@@ -18,7 +18,20 @@ export class HomeEstudianteComponent implements OnInit {
   	public usuario: setUser;
   	rut:string;
   	apiKey:string;
+    // Doughnut
+    public doughnutChartLabels:string[] = ['Aprobados', 'Reprobados'];
+    public doughnutChartData:number[] = [27, 13];
+    public doughnutChartType:string = 'doughnut';
 
+    // events
+    public chartClicked(e:any):void {
+      console.log(e);
+    }
+
+    public chartHovered(e:any):void {
+      console.log(e);
+    }
+    
   constructor(
 
   		private _peticionesService:PeticionesService

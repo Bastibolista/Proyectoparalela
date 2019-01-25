@@ -8,7 +8,7 @@
     }
   </style>
   <header>
-    <ul>
+   <ul>
       <li id="nombre"><a [routerLink]="['/HomeEstudiante']">Nombre</a></li>
       <li><a [routerLink]="['/HomeEstudiante']">Inicio</a></li>
       <li><a [routerLink]="['/ListadoEstudiante']">Listado cursos</a></li>
@@ -17,36 +17,25 @@
     </ul>
   </header>
 
-  <div style="padding-top: 150px;">
-    <head>
-      <title>
-        Historico estudiantes
-      </title>
-    </head>
-    <body>
-      <h1>Listado de cursos</h1>
-      <table>
-        <tr>
-          <td><strong>Ramo</strong></td>
-          <td><strong>Nota aprobacion</strong></td>
-          <td><strong>Desviacion estandar</strong></td>
-        </tr>
-        <tr>
-          <td>Calculo 1</td>
-          <td><pre>   4.0 </pre></td>
-          <td>1.3</td>
-        </tr>
-        <tr>
-          <td>Calculo 2</td>
-          <td><pre>   5.0 </pre></td>
-          <td>3.4</td>
-        </tr>
-        <tr>
-          <td>Calculo 3</td>
-          <pre>   4.3 </pre>
-          <td>1.0</td>
-        </tr>
-      </table>
-    </body>
+  <div style="padding-top:  150px;" >
+    <h1>Estado Actual</h1>
+    <hr>
+    <p>Nombre: Juantio</p>
+    <p>Apellido: Perez</p>
+    <p>Año de ingreso: 2013 </p>
+    <p>Cursado 40 ramos</p>
+    <hr>
+    <div style="display: block">
+      <canvas baseChart
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+    <hr>
+    <p>Desviacion Estandar : 15</p>
+    <p>Ranking : 100</p>
   </div>
 </html>
