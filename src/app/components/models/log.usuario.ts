@@ -6,7 +6,7 @@ export class LogUsuario{
 
 }
 
-export class GetUsuario{
+export class GetSubject{
 	constructor(
 		public ordinal:string,
 		public subjectCode:string,
@@ -26,8 +26,28 @@ export class User{
 
 }
 
+export class getDatos{
+	constructor(
+		public rut:string,
+		public firstName:string,
+		public lastName:string,
+		public gender:string,
+		public birthdate:string
+	){}
+}
+
+export class getRanking{
+	constructor(
+		public average:number,
+		public position:number,
+		public stdev:number
+//falta definir estudiante
+	){}
+
+}
+
 export class setUser{
-	
+
 	constructor(
 		public apiKey:string,
 		public rut:string

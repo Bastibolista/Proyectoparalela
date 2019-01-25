@@ -9,7 +9,7 @@
   </style>
   <header>
    <ul>
-      <li id="nombre"><a [routerLink]="['/HomeEstudiante']">Nombre</a></li>
+      <li id="nombre"><a [routerLink]="['/HomeEstudiante']">{{firstName}}</a></li>
       <li><a [routerLink]="['/HomeEstudiante']">Inicio</a></li>
       <li><a [routerLink]="['/ListadoEstudiante']">Listado cursos</a></li>
       <li><a [routerLink]="['/GraficoAlumno']">Grafico curso</a></li>
@@ -17,10 +17,10 @@
     </ul>
   </header>
 
-  <div style="padding-top:  150px;" >
+  <div style="padding-top:  50px;" >
     <h1>Estado Actual</h1>
     <hr>
-    <p>Nombre: Juantio</p>
+    <p>Nombre: {{ this.name }}</p>
     <p>Apellido: Perez</p>
     <p>Año de ingreso: 2013 </p>
     <p>Cursado 40 ramos</p>

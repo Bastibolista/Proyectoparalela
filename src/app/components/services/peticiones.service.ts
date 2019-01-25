@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import {Subscription} from 'rxjs';
 import { map } from 'rxjs/operators';
 import {OlvidoClave} from "../../interfaces/olvido.interface";
 import 'rxjs/Rx';
-import { User, setUser } from '../models/log.usuario';
+import { User, setUser , getDatos} from '../models/log.usuario';
 
 @Injectable({providedIn:'root'})
 export class PeticionesService{
-    olvidURL:string ="https://api.sebastian.cl/academia//api/v1/authentication/forgot/"
+    olvidURL:string ="https://api.sebastian.cl/academia/api/v1/authentication/forgot/"
     public rut:string;
 	public url:string;
 	constructor( public _http: HttpClient){
@@ -43,8 +44,21 @@ export class PeticionesService{
         //localStorage.getItem(rut)
     }
 
+    getDatos(apiKey:string,rut:string){
+        //let params = JSON.stringify(user);
+        let option={headers:new HttpHeaders({'X-API-KEY':apiKey})};
+        return this._http.get<any>(this.url+'api/v1/students/'+rut,{headers: new HttpHeaders().set("X-API-KEY", apiKey)})
 
-
+        .subscribe(
+            response=>{
+            console.log(response);
+        //this._peticionesService.setRut(this.rut);
+      },
+      error=>{
+        console.log(<any>error);
+      }
+    );
+    }
 
 	sendUser(user): Observable<any>{
 		let params = JSON.stringify(user);
@@ -62,8 +76,22 @@ export class PeticionesService{
             response=>{
             console.log(response);
         //this._peticionesService.setRut(this.rut);
+      },
+      error=>{
+        console.log(<any>error);
+      }
+            );
+    }
 
+    getProfe(apiKey: string,rut:string){
+        //let params = JSON.stringify(user);
+        let option={headers:new HttpHeaders({'X-API-KEY':apiKey})};
+        return this._http.get<any>(this.url+'api/v1/courses/teachers/'+rut+'/stats/',{headers: new HttpHeaders().set("X-API-KEY", apiKey)})
 
+        .subscribe(
+            response=>{
+            console.log(response);
+        //this._peticionesService.setRut(this.rut);
       },
       error=>{
         console.log(<any>error);
@@ -77,7 +105,7 @@ export class PeticionesService{
             'Content-Type':'apllicacion/json'
         });
         return this._http.post(this.olvidURL+'190330001', body,{headers} )/*
-        .map( res=>{ 
+        .map( res=>{
             console.log(res.json());
             return res.json();
         })*/
