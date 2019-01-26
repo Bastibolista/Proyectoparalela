@@ -13,6 +13,7 @@ import { ListadoEstudianteComponent } from './components/listado-estudiante/list
 import { ListadoDocenteComponent } from './components/listado-docente/listado-docente.component';
 import { GraficoAlumnoComponent } from './components/grafico-alumno/grafico-alumno.component';
 import { AvisoDocenteComponent } from './components/aviso-docente/aviso-docente.component';
+import { CambiarClaveComponent } from './components/cambiar-clave/cambiar-clave.component';
 
 //import { AuthGuard } from './_guards';
 import { Injectable } from '@angular/core';
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
   {path: 'ListadoEstudiante', component: ListadoEstudianteComponent,canActivate:[AuthGuard]},
   {path: 'GraficoAlumno', component: GraficoAlumnoComponent,canActivate:[AuthGuard]},
   {path: 'AvisoDocente', component: AvisoDocenteComponent,canActivate:[AuthGuard]},
+  {path: 'CambiarClave', component: CambiarClaveComponent,canActivate:[AuthGuard]},
 	{path: '**', component: LoginComponent}
 
 

@@ -24,7 +24,7 @@ export class RecuperarComponent implements OnInit {
     //inserción
     this._peticionesService.olvidoClave(this.olvido)
     .subscribe(data=>{
-      
+            return data;
     },
     error => console.error(error));
 
