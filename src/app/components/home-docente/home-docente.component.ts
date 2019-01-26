@@ -5,7 +5,7 @@ import { PeticionesService } from '../services/peticiones.service';
 //import { LoginComponent } from '../components/login/login.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { GetUsuario } from '../components/models/log.usuario';
-import { User, setUser } from '../models/log.usuario';
+import { User, setUser, getData } from '../models/log.usuario';
 
 
 @Component({
@@ -18,6 +18,8 @@ export class HomeDocenteComponent implements OnInit {
   private isUserLoggedIn;
   	public usserLogged:User;
   	public usuario: setUser;
+    public profe: getData;
+    name:string;
   	rut:string;
   	apiKey:string;
     // Doughnut
@@ -39,6 +41,7 @@ export class HomeDocenteComponent implements OnInit {
   		private _peticionesService:PeticionesService
   	) {
   		this.usuario = new setUser('',''),
+      this.profe = new getData('','','','',''),
   		this.usserLogged=JSON.parse(localStorage.getItem('currentUser'));
   	}
 
@@ -47,7 +50,23 @@ export class HomeDocenteComponent implements OnInit {
   	this.apiKey=this.usserLogged.apiKey;
   	this.usuario.rut=this.rut;
   	this.usuario.apiKey=this.apiKey;
-  	console.log(this._peticionesService.getProfe(this.apiKey,this.rut));
-  }
+    this._peticionesService.getUser(this.apiKey,this.rut)
+    .subscribe(
+            response=>{
+              this.profe=response[1].teacher;
+            //  this.rank=response[1];
+            //console.log(this.rank);
+            console.log(this.profe);
+        //this._peticionesService.setRut(this.rut);
+      },
+      error=>{
+        console.log(<any>error);
+      }
+            );
 
+  }
 }
+  	//console.log(this._peticionesService.getProfe(this.apiKey,this.rut));
+//  }
+
+//}

@@ -36,6 +36,17 @@ export class getDatos{
 	){}
 }
 
+export class getData{
+	constructor(
+		public rut:string,
+		public firstName:string,
+		public lastName:string,
+		public gender:string,
+		public birthdate:string
+	){}
+}
+
+
 export class getRanking{
 	constructor(
 		public average:number,
