@@ -13,7 +13,7 @@
      <li><a [routerLink]="['/HomeEstudiante']">Inicio</a></li>
       <li><a [routerLink]="['/ListadoEstudiante']">Listado cursos</a></li>
       <li><a [routerLink]="['/GraficoAlumno']">Grafico curso</a></li>
-      <li><a [routerLink]="['/CambiarClave']">Cambiar Clave</a></li>
+      <li><a [routerLink]="['/CambiarClaveEstudiante']">Cambiar Clave</a></li>
       <li><a [routerLink]="['']">Salir</a></li>
     </ul>
   </header>
@@ -48,7 +48,7 @@
                   <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
                 </tr>
               </tbody>
-              
+
             </table>
           </div>
         </div>
@@ -58,6 +58,6 @@
         <p>Desviacion Estandar :1.5</p>
         </div>
 
-    
+
   </body>
 </html>
