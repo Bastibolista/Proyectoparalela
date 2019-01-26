@@ -69,6 +69,9 @@ export class LoginComponent implements OnInit {
     else if (this.role=='Docente') {
           this.router.navigate(['/HomeDocente']);
         }
+    else{
+      alert("Datos No Validos");
+    }
 
   }
 

@@ -1,0 +1,47 @@
+<html>
+<style type="text/css">
+  h1{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
+
+  </style>
+ <header>
+    <ul>
+    <!--  <li id="nombre"><a [routerLink]="['/HomeEstudiante']">{{estudiante.firstName}}</a></li> -->
+      <li><a [routerLink]="['/HomeDocente']">Inicio</a></li>
+      <li><a [routerLink]="['/ListadoDocente']">Listado cursos</a></li>
+      <li><a [routerLink]="['/AvisoDocente']">Avisos</a></li>
+      <li><a [routerLink]="['/CambiarClave']">Cambiar Clave</a></li>
+      <li><a [routerLink]="['']">Salir</a></li>
+    </ul>
+  </header>
+  <body>
+      <div class="container">
+          <div>
+            <label for="uname"><b>Nueva Contraseña:</b></label>         
+            <input type="psw1" placeholder="Nueva Contraseña" name="psw1" />
+            <span>
+
+            </span>   
+          </div>
+          
+          <div>
+            <label for="psw2"><b>Repetir la Contraseña</b></label>
+            <input type="psw2" placeholder="Repetir la Contraseña" name="psw2">   
+            
+          </div>
+          
+          <div>
+              <button><input type="button" class="btn btn-secondary" value="Cambiar"></button>
+          </div>
+              
+        </div>
+             
+    
+  </body>
+</html>
+
+  

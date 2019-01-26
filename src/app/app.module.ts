@@ -32,6 +32,7 @@ import { ListadoEstudianteComponent } from './components/listado-estudiante/list
 import { GraficoAlumnoComponent } from './components/grafico-alumno/grafico-alumno.component';
 import { AvisoDocenteComponent } from './components/aviso-docente/aviso-docente.component';
 import { ListadoDocenteComponent } from './components/listado-docente/listado-docente.component';
+import { CambiarClaveComponent } from './components/cambiar-clave/cambiar-clave.component';
 
 
 @Injectable()
@@ -98,6 +99,7 @@ const appRoutes:Routes=[
     GraficoAlumnoComponent,
     AvisoDocenteComponent,
     ListadoDocenteComponent,
+    CambiarClaveComponent,
 
 
   ],

@@ -10,10 +10,54 @@
   <header>
     <ul>
       <!--  <li id="nombre"><a [routerLink]="['/HomeEstudiante']">{{estudiante.firstName}}</a></li> -->
-      <li><a [routerLink]="['/HomeEstudiante']">Inicio</a></li>
+     <li><a [routerLink]="['/HomeEstudiante']">Inicio</a></li>
       <li><a [routerLink]="['/ListadoEstudiante']">Listado cursos</a></li>
       <li><a [routerLink]="['/GraficoAlumno']">Grafico curso</a></li>
+      <li><a [routerLink]="['/CambiarClave']">Cambiar Clave</a></li>
       <li><a [routerLink]="['']">Salir</a></li>
     </ul>
   </header>
+  <body>
+      <div style="padding-top:  150px;">
+          <h1>Grafico Historico</h1>
+        <hr>
+        <p>Año de ingreso 2013</p>
+        <div class="row">
+          <div class="col-md-6">
+            <div style="display: block;">
+            <canvas baseChart width="100" height="100"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+            </div>
+          </div>
+          <div class="col-md-6" style="margin-bottom: 10px;margin: 0 auto; width: 50%;">
+            <table class="table table-responsive table-condensed" style="text-align: center;margin: auto;">
+              <thead>
+                <tr>
+                  <th *ngFor="let label of lineChartLabels">{{label}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let d of lineChartData">
+                  <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
+                </tr>
+              </tbody>
+              
+            </table>
+          </div>
+        </div>
+        <hr>
+        <p>Ranking :100</p>
+        <p>Promedio: 4.5</p>
+        <p>Desviacion Estandar :1.5</p>
+        </div>
+
+    
+  </body>
 </html>
