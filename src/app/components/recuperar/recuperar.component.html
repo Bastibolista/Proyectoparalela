@@ -93,7 +93,7 @@ span.psw {
   <div class="container">
     <form (ngSubmit)="guardar()" #forma="ngForm">
     <label for="uname"><b>Rut</b></label>
-    <input [(ngModel)]="olvido.rut"
+    <input required #rut="ngModel" [(ngModel)]="olvido1.rut"
         name="rut"
       type="text" placeholder="Rut" required>
 

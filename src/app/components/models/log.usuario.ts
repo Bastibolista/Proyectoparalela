@@ -5,6 +5,21 @@ export class LogUsuario{
 	){}
 
 }
+export class olvido1{
+constructor(
+	public rut:string
+){}
+
+}
+export class cambiarclave{
+constructor(
+	public pdw:string,
+	public pdw1:string,
+	public pdw2:string,
+	public rut:string
+){}
+
+}
 
 export class GetSubject{
 	constructor(

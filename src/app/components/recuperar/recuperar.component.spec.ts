@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router, Routes,RouterModule } from '@angular/router';
 
 import { RecuperarComponent } from './recuperar.component';
 

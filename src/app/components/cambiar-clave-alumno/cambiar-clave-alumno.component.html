@@ -21,16 +21,24 @@
   <body>
       <div class="container">
           <div>
-            <label for="uname"><b>Nueva Contraseña:</b></label>
-            <input type="psw1" placeholder="Nueva Contraseña" name="psw1" />
-            <span>
+            <label for="uname"><b>Contraseña:</b></label>
+            <input type="psw" placeholder="Nueva Contraseña" name="psw" required #rut="ngModel" [(ngModel)]="cambiarclave.pdw" />
 
-            </span>
+          </div>
+          <div>
+            <label for="uname"><b> Nueva Contraseña:</b></label>
+            <input type="psw2" placeholder="Nueva Contraseña" name="psw2" required #rut="ngModel" [(ngModel)]="cambiarclave.pdw2" />
+
+          </div>
+          <div>
+            <label for="uname"><b>Repetir Nueva Contraseña:</b></label>
+            <input type="psw1" placeholder="Nueva Contraseña" name="psw1" required #rut="ngModel" [(ngModel)]="cambiarclave.pdw1" />
+
           </div>
 
           <div>
-            <label for="psw2"><b>Repetir la Contraseña</b></label>
-            <input type="psw2" placeholder="Repetir la Contraseña" name="psw2">
+            <label for="uname"><b> Rut:</b></label>
+            <input type="rut" placeholder="Nueva Contraseña" name="rut" required #rut="ngModel" [(ngModel)]="cambiarclave.rut" />
 
           </div>
 
