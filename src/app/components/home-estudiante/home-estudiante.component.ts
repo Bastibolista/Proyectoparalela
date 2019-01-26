@@ -44,12 +44,12 @@ export class HomeEstudianteComponent implements OnInit {
       this.estudiante = new getDatos('','','','',''),
   		this.usserLogged=JSON.parse(localStorage.getItem('currentUser')),
       console.log(this._peticionesService.getDatos(this.usserLogged.apiKey,this.usserLogged.rut));
-      //this.variable=this._peticionesService.getDatos(this.usserLogged.apiKey,this.usserLogged.rut);
 
   	}
 
   ngOnInit() {
-    this.name=this.estudiante.firstName;
+    //this.variable=this._peticionesService.getDatos(this.usserLogged.apiKey,this.usserLogged.rut);
+    //this.name=this.estudiante[0];
     //this.variable = this.estudiante.firstName
     //this.name=this.estudiante.firstName;
   //  console.log(this._peticionesService.getDatos(this.usserLogged.apiKey,this.usserLogged.rut));

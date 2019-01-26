@@ -14,7 +14,8 @@ export class PeticionesService{
 	public url:string;
 	constructor( public _http: HttpClient){
 
-		this.url="https://api.sebastian.cl/academia/"
+  //  this.url="http://138.68.23.14/" //BACK MATI
+	   this.url="https://api.sebastian.cl/academia/"
 	}
 /*	this._http.post('https://api.sebastian.cl/academia/swagger-ui.html#/api/v1/students/',sampleJSON,{
       rut: this.usuario.rut,
@@ -48,7 +49,7 @@ export class PeticionesService{
         //let params = JSON.stringify(user);
         let option={headers:new HttpHeaders({'X-API-KEY':apiKey})};
         return this._http.get<any>(this.url+'api/v1/students/'+rut,{headers: new HttpHeaders().set("X-API-KEY", apiKey)})
-
+        //.map( res=>res.json());
         .subscribe(
             response=>{
             console.log(response);
