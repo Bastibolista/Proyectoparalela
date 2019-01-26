@@ -73,15 +73,7 @@ export class PeticionesService{
         let option={headers:new HttpHeaders({'X-API-KEY':apiKey})};
         return this._http.get<any>(this.url+'api/v1/courses/students/'+rut,{headers: new HttpHeaders().set("X-API-KEY", apiKey)})
 
-        .subscribe(
-            response=>{
-            console.log(response);
-        //this._peticionesService.setRut(this.rut);
-      },
-      error=>{
-        console.log(<any>error);
-      }
-            );
+        
     }
 
     getProfe(apiKey: string,rut:string){
