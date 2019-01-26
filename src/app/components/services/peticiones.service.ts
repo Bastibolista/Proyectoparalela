@@ -14,8 +14,10 @@ export class PeticionesService{
 	public url:string;
 	constructor( public _http: HttpClient){
 
-    //this.url="http://138.68.23.14/" //BACK MATI
-	   this.url="https://api.sebastian.cl/academia/"
+    this.url="http://138.68.23.14/" //BACK MATI
+    //this.url="http://159.65.98.84:3000/"  //Grupo X
+    //this.url="http://142.93.93.8/"    //GrupoXX
+	   //this.url="https://api.sebastian.cl/academia/"
 	}
 /*	this._http.post('https://api.sebastian.cl/academia/swagger-ui.html#/api/v1/students/',sampleJSON,{
       rut: this.usuario.rut,
@@ -127,18 +129,11 @@ export class PeticionesService{
             );
     }
 
-    olvidoClave(olvido:OlvidoClave){
-        let body=JSON.stringify(olvido);
-        let headers= new HttpHeaders({
-            'Content-Type':'apllicacion/json'
-        });
-        return this._http.post(this.olvidURL+'190330001', body,{headers} )/*
-        .map( res=>{
-            console.log(res.json());
-            return res.json();
-        })*/
+    olvidoClave(rut:string){
+      return this._http.post<any>(this.url+'api/v1/authentication/forgot/'+rut, { rut })
+  
+  }
 
-    }
 
 
 

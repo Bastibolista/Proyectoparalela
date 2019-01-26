@@ -47,7 +47,7 @@ const appRoutes: Routes = [
 	{path: 'teacher', component: TeacherComponent,canActivate:[AuthGuard]},
 	{path: 'student', component: StudentComponent,canActivate:[AuthGuard]},
 	{path: 'comparacion', component: ComparacionComponent,canActivate:[AuthGuard]},
-	{path: 'recuperar', component: RecuperarComponent,canActivate:[AuthGuard]},
+	{path: 'recuperar', component: RecuperarComponent},
   {path: 'HomeEstudiante', component: HomeEstudianteComponent,canActivate:[AuthGuard]},
   {path: 'HomeDocente', component: HomeDocenteComponent,canActivate:[AuthGuard]},
   {path: 'ListadoDocente', component: ListadoDocenteComponent,canActivate:[AuthGuard]},

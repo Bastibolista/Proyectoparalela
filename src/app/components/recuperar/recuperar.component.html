@@ -19,7 +19,7 @@
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
-  
+
 
 }
 form {border: 3px solid #f1f1f1;}
@@ -93,7 +93,7 @@ span.psw {
   <div class="container">
     <form (ngSubmit)="guardar()" #forma="ngForm">
     <label for="uname"><b>Rut</b></label>
-    <input [(ngModel)]="olvido.rut" 
+    <input [(ngModel)]="olvido.rut"
         name="rut"
       type="text" placeholder="Rut" required>
 
@@ -102,7 +102,7 @@ span.psw {
   </div>
 
   <div class="container" style="background-color:#fffefe;">
-    <button [disabled]="!forma.valid" onclick="location.href='login'" type="button" class="cancelbtn">Cancel</button>
+    <button [disabled]="!forma.valid" onclick="location.href=''" type="button" class="cancelbtn">Cancel</button>
   </div>
 </form>
 

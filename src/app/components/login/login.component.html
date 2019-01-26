@@ -20,7 +20,7 @@
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
-  
+
 
 }
 form {border: 3px solid #f1f1f1;}
@@ -100,26 +100,26 @@ span.psw {
       <label for="uname"><b>Rut</b></label>
       <input type="text" placeholder="Rut" name="uname" required #rut="ngModel" [(ngModel)]="usuario.rut">
     </div>
-    
+
     <div>
       <label for="psw"><b>Contraseña</b></label>
       <input type="password" placeholder="Contraseña" name="psw" required #rut="ngModel" [(ngModel)]="usuario.password">
 
- 
+
 
     </div>
-    
+
     <div>
       <button><input type="button" class="btn btn-secondary" value="Ingresar"></button>
-      
+
     </div>
-        
+
   </div>
 
   <div class="container" style="background-color:#fffefe;">
     <button type="button" class="cancelbtn">Cancel</button>
     <span class="psw"><a [routerLink]="['/recuperar']">¿Olvido su contraseña?</a></span>
-   
+
   </div>
 </form>
 

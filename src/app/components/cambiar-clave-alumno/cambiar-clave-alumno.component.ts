@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cambiar-clave-alumno.component.css']
 })
 export class CambiarClaveAlumnoComponent implements OnInit {
-  //public pws1:string;
-  //public pws2:string;
+  public pws1:string;
+  public pws2:string;
 
   constructor() { }
 
