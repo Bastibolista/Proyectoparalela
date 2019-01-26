@@ -36,7 +36,6 @@ export class ListadoEstudianteComponent implements OnInit {
     this.estudiante = new getDatos('','','','',''),
   	this.usserLogged=JSON.parse(localStorage.getItem('currentUser'))
     //console.log(this._peticionesService.getDatos(this.usserLogged.apiKey,this.usserLogged.rut));
-
   	}
 
   ngOnInit() {
@@ -47,22 +46,13 @@ export class ListadoEstudianteComponent implements OnInit {
   	this._peticionesService.getUser(this.apiKey,this.rut)
   	.subscribe(
             response=>{
-            	
             	this.estudiante=response[1].student;
         		console.log(this.estudiante);
-
         //this._peticionesService.setRut(this.rut);
       },
       error=>{
         console.log(<any>error);
       }
             );
-  	
-
   }
-
 }
-
-
-
-

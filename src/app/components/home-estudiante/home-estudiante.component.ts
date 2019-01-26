@@ -42,25 +42,25 @@ export class HomeEstudianteComponent implements OnInit {
   	) {
   		this.usuario = new setUser('',''),
       this.estudiante = new getDatos('','','','',''),
-  		this.usserLogged=JSON.parse(localStorage.getItem('currentUser')),
-      console.log(this._peticionesService.getDatos(this.usserLogged.apiKey,this.usserLogged.rut));
-
+  		this.usserLogged=JSON.parse(localStorage.getItem('currentUser'));
+      //console.log(this._peticionesService.getDatos(this.usserLogged.apiKey,this.usserLogged.rut));
   	}
 
-  ngOnInit() {
-    //this.variable=this._peticionesService.getDatos(this.usserLogged.apiKey,this.usserLogged.rut);
-    //this.name=this.estudiante[0];
-    //this.variable = this.estudiante.firstName
-    //this.name=this.estudiante.firstName;
-  //  console.log(this._peticionesService.getDatos(this.usserLogged.apiKey,this.usserLogged.rut));
-  //  this.name=this.estudiante.firstName;
+    ngOnInit() {
   	this.rut=this.usserLogged.rut;
-  	this.apiKey=this.usserLogged.apiKey;
-  	this.usuario.rut=this.rut;
-  	this.usuario.apiKey=this.apiKey;
-  	console.log(this._peticionesService.getUser(this.apiKey,this.rut));
-
-
+    	this.apiKey=this.usserLogged.apiKey;
+    	this.usuario.rut=this.rut;
+    	this.usuario.apiKey=this.apiKey;
+    	this._peticionesService.getUser(this.apiKey,this.rut)
+    	.subscribe(
+              response=>{
+              	this.estudiante=response[1].student;
+          		console.log(this.estudiante);
+          //this._peticionesService.setRut(this.rut);
+        },
+        error=>{
+          console.log(<any>error);
+        }
+              );
+    }
   }
-
-}

@@ -9,7 +9,7 @@
   </style>
   <header>
    <ul>
-      <li id="nombre"><a [routerLink]="['/HomeEstudiante']">{{firstName}}</a></li>
+    <!--  <li id="nombre"><a [routerLink]="['/HomeEstudiante']">{{estudiante.firstName}}</a></li> -->
       <li><a [routerLink]="['/HomeEstudiante']">Inicio</a></li>
       <li><a [routerLink]="['/ListadoEstudiante']">Listado cursos</a></li>
       <li><a [routerLink]="['/GraficoAlumno']">Grafico curso</a></li>
@@ -20,10 +20,10 @@
   <div style="padding-top:  50px;" >
     <h1>Estado Actual</h1>
     <hr>
-    <p>Nombre: {{ datos }}</p>
-    <p>Apellido: Perez</p>
-    <p>Año de ingreso: 2013 </p>
-    <p>Cursado 40 ramos</p>
+    <p>{{ estudiante.firstName }} {{estudiante.lastName}}</p>
+    <p>Ranking: </p>
+    <p>Ramos cursados: </p>
+    <p>Promedio cursados: </p>
     <hr>
     <div style="display: block">
       <canvas baseChart
@@ -34,8 +34,5 @@
             (chartClick)="chartClicked($event)">
       </canvas>
     </div>
-    <hr>
-    <p>Desviacion Estandar : 15</p>
-    <p>Ranking : 100</p>
   </div>
 </html>
