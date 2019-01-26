@@ -39,7 +39,7 @@ export class getDatos{
 export class getRanking{
 	constructor(
 		public average:number,
-		public position:number,
+		public position:any,
 		public stdev:number
 //falta definir estudiante
 	){}

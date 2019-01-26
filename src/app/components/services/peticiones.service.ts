@@ -5,7 +5,7 @@ import {Subscription} from 'rxjs';
 import { map } from 'rxjs/operators';
 import {OlvidoClave} from "../../interfaces/olvido.interface";
 import 'rxjs/Rx';
-import { User, setUser , getDatos} from '../models/log.usuario';
+import { User, setUser , getDatos, getRanking} from '../models/log.usuario';
 
 @Injectable({providedIn:'root'})
 export class PeticionesService{
@@ -14,8 +14,8 @@ export class PeticionesService{
 	public url:string;
 	constructor( public _http: HttpClient){
 
-  //  this.url="http://138.68.23.14/" //BACK MATI
-	   this.url="https://api.sebastian.cl/academia/"
+    this.url="http://138.68.23.14/" //BACK MATI
+	  // this.url="https://api.sebastian.cl/academia/"
 	}
 /*	this._http.post('https://api.sebastian.cl/academia/swagger-ui.html#/api/v1/students/',sampleJSON,{
       rut: this.usuario.rut,
@@ -61,6 +61,23 @@ export class PeticionesService{
     );
     }
 
+
+    getRanking(apiKey:string,rut:string){
+        //let params = JSON.stringify(user);
+        let option={headers:new HttpHeaders({'X-API-KEY':apiKey})};
+        return this._http.get<any>(this.url+'api/v1/rankings/'+rut,{headers: new HttpHeaders().set("X-API-KEY", apiKey)})
+        //.map( res=>res.json());
+        .subscribe(
+            response=>{
+            console.log(response);
+        //this._peticionesService.setRut(this.rut);
+      },
+      error=>{
+        console.log(<any>error);
+      }
+    );
+    }
+
 	sendUser(user): Observable<any>{
 		let params = JSON.stringify(user);
 		let headers= new HttpHeaders().set('Content-Type','aplication/json');
@@ -72,8 +89,10 @@ export class PeticionesService{
         //let params = JSON.stringify(user);
         let option={headers:new HttpHeaders({'X-API-KEY':apiKey})};
         return this._http.get<any>(this.url+'api/v1/courses/students/'+rut,{headers: new HttpHeaders().set("X-API-KEY", apiKey)})
+        //return this._http.get<any>(this.url+'api/v1/rankings/'+rut,{headers: new HttpHeaders().set("X-API-KEY", apiKey)})
 
-        
+
+
     }
 
     getProfe(apiKey: string,rut:string){

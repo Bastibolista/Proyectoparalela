@@ -4,7 +4,7 @@ import { PeticionesService } from '../services/peticiones.service';
 //import { LoginComponent } from '../components/login/login.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { GetUsuario } from '../components/models/log.usuario';
-import { User, setUser, getDatos } from '../models/log.usuario';
+import { User, setUser, getDatos, getRanking } from '../models/log.usuario';
 
 @Component({
   selector: 'app-home-estudiante',
@@ -17,11 +17,14 @@ export class HomeEstudianteComponent implements OnInit {
   	public usserLogged:User;
   	public usuario: setUser;
     public estudiante: getDatos;
+    public rank: getRanking;
   	rut:string;
   	apiKey:string;
     name:string;
-    lastname:string;
-    variable:any;
+    position:any;
+    average:any;
+    stddev:any;
+
     // Doughnut
     public doughnutChartLabels:string[] = ['Aprobados', 'Reprobados'];
     public doughnutChartData:number[] = [27, 13];
@@ -42,6 +45,7 @@ export class HomeEstudianteComponent implements OnInit {
   	) {
   		this.usuario = new setUser('',''),
       this.estudiante = new getDatos('','','','',''),
+      this.rank = new getRanking(this.average, this.position, this.stddev),
   		this.usserLogged=JSON.parse(localStorage.getItem('currentUser'));
       //console.log(this._peticionesService.getDatos(this.usserLogged.apiKey,this.usserLogged.rut));
   	}
@@ -55,6 +59,8 @@ export class HomeEstudianteComponent implements OnInit {
     	.subscribe(
               response=>{
               	this.estudiante=response[1].student;
+                this.rank=response[1];
+              console.log(this.rank);
           		console.log(this.estudiante);
           //this._peticionesService.setRut(this.rut);
         },
@@ -62,5 +68,6 @@ export class HomeEstudianteComponent implements OnInit {
           console.log(<any>error);
         }
               );
+
     }
   }
